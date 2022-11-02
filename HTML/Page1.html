@@ -3,15 +3,64 @@
 <head>
 <title>Wepage - Page 1 </title>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" 
+content="width=device-width, initial-scale=1">
+<title>Dark Mode</title>
+<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+</script>
 <style>
-body {
+  
+    body {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+
 </style> 
 </head>
 
 <body>
+    <div class="mode">
+        Dark mode:            
+        <span class="change">OFF</span>
+    </div>
+
+    <style>
+        img{
+            height:140px;
+                width:140px;
+        }
+
+        .mode {
+            float:right;
+        }
+        .change {
+            cursor: pointer;
+            border: 0px solid #555;
+            border-radius: 5%;
+            width: 10px;
+            text-align: center;
+            padding: 0px;
+            margin-left: 13px;
+        }
+        .dark{
+            background-color: rgb(10, 10, 10);
+            color: #000000;
+        }
+    </style>
+
+    <script>
+        $( ".change" ).on("click", function() {
+            if( $( "body" ).hasClass( "dark" )) {
+                $( "body" ).removeClass( "dark" );
+                $( ".change" ).text( "OFF" );
+            } else {
+                $( "body" ).addClass( "dark" );
+                $( ".change" ).text( "ON" );
+            }
+        });
+    </script>
+
 <style type="text/css">
     .header {
     padding: 10px;
@@ -22,12 +71,25 @@ body {
     .header h1 {
         font-size: 80px;
     }
+
+input[type=text] {
+    width: 130px;
+    -webkit-transition: width 0.25s ease-in-out;
+    transition: width 0.25s ease-in-out;
+    background: #1ab1bc; 
+  }
+  
+  input[type=text]:focus {
+    width: 100%;
+  }
 </style>
 
 <div class="header"> 
 <h1>Davids Website</h1>
-<p>Made in Visual Studio Code</p>
+<p style="font-size: 30px"> Made in Visual Studio Code</p>
+<input type="text" name="search" placeholder="Search..">
 </div>
+
 
 <style type="text/css">
 .navbar {
@@ -40,7 +102,7 @@ body {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 20px;
+    padding: 20px 20px;
     text-decoration: none;
 }
 
